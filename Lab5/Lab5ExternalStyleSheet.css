@@ -1,5 +1,5 @@
 body {
-    font-size: 100%;
+    /* font-size: 100%; */
     font-family: Verdana, sans-serif;
     border-left: 4px double rgb(174, 172, 172);
 }
@@ -12,7 +12,7 @@ header h1 {
     text-shadow: 1px 1px 2px  black;
     color: orange;
     font-style: italic;
-    font-style: bold;
+    font-weight: bold;
 }
 header h2 {
     font-size: 100%;
@@ -27,11 +27,7 @@ main h2::first-letter{
 main p {
     font-size: 85%;
 }
-footer p {
-    font-size: 80%;
-    text-align: center;
 
-}
 main a { 
     font-weight: bold;
 }
@@ -51,4 +47,11 @@ main h4 {
 
 span {
     font-weight: bold;
+}
+
+ul {line-height: 1.5;}
+
+footer p {
+    font-size: 80%;
+    text-align: center;
 }
