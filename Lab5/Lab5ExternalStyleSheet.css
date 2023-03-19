@@ -22,7 +22,7 @@ main h2 {
     font-weight: bold;
     font-size: 120%;
 }
-main h2::first-letter{
+main h2::first-letter{  /* First heading in main is an h2 and the first letter is big "W" */
     font-size: 200%;
 }
 main p {
@@ -47,7 +47,7 @@ main h4 {
 }
 
 span {
-    font-weight: bold;
+    font-weight: bold;      /*used to style the one sentece in the last paragraph bold */
 }
 
 ul {line-height: 1.5;}
