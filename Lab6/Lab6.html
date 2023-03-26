@@ -8,6 +8,7 @@
             <label for="first_name">First Name</label>
             <input type="text" id="first_name" name="first_name">
             <span id="first_name_error">*</span><br>
+
             <label>&nbsp;</label><br>
             <label for="last_name">Last Name</label>
             <input type="text" id="last_name" name="last_name">
@@ -24,11 +25,117 @@
             <label for="Mark_3">Mark 3</label>
             <input type="text" id="Mark_3" name="Mark_3">
             <span id="Mark_3_error">*</span><br><br>
+
             <button onclick="validateTxt()">Validate</button>
             <button onclick="printResult()">Print Result</button>
 
 
+           <p id="result"></p>
+
             <!--<button onclick="myFunction()">Try it</button>-->
+                
+        
+            <script>
+                var validateTxt = function() {
+                    var firstName = document.getElementById("first_name").value;
+                    var lastName = document.getElementById("last_name").value;
+                    var mark1 = document.getElementById("Mark_1").value;
+                    var mark2 = document.getElementById("Mark_2").value;
+                    var mark3 = document.getElementById("Mark_3").value;
+
+                    // validate first name 
+                    if (firstName == "") {
+                        document.getElementById("first_name_error").firstChild.nodeValue = " This field is required!";
+                    } else {
+                        document.getElementById("first_name_error").firstChild.nodeValue = "*";
+                    }
+
+                    // validate last name 
+                    if (lastName =="") {
+                        document.getElementById("last_name_error").firstChild.nodeValue = "This field is required!";
+                    }else {
+                        document.getElementById("last_name_error").firstChild.nodeValue = "*";
+                    }
+
+                    // validate mark 1 
+                    if (mark1 == "" ) {
+                        document.getElementById("Mark_1_error").firstChild.nodeValue = "This field is required!";
+                    } else if (mark1 < 0 ) {
+                        document.getElementById("Mark_1_error").firstChild.nodeValue = "Mark must be greater than 0";
+                    }else if (mark1 > 100) {
+                        document.getElementById("Mark_1_error").firstChild.nodeValue = "Mark must be less than 100";
+                    } else{
+                        document.getElementById("Mark_1_error").firstChild.nodeValue = "*"
+                    }
+                    
+                    //vaildate mark2 
+                    if (mark2 == "" ) {
+                        document.getElementById("Mark_2_error").firstChild.nodeValue = "This field is required!";
+                    } else if (mark2 < 0 ) {
+                        document.getElementById("Mark_2_error").firstChild.nodeValue = "Mark must be greater than 0";
+                    }else if (mark2 > 100) {
+                        document.getElementById("Mark_2_error").firstChild.nodeValue = "Mark must be less than 100";
+                    } else{
+                        document.getElementById("Mark_2_error").firstChild.nodeValue = "*"
+                    }
+
+                    // validate mark 3 
+
+                    if (mark3 == "" ) {
+                        document.getElementById("Mark_3_error").firstChild.nodeValue = "This field is required!";
+                    } else if (mark3 < 0 ) {
+                        document.getElementById("Mark_3_error").firstChild.nodeValue = "Mark must be greater than 0";
+                    }else if (mark3 > 100) {
+                        document.getElementById("Mark_3_error").firstChild.nodeValue = "Mark must be less than 100";
+                    } else{
+                        document.getElementById("Mark_3_error").firstChild.nodeValue = "*"
+                    }
+                } 
+
+                var printResult = function() {
+                    var avgMark, mark1, mark2, mark3, firstName, lastName, text 
+                    mark1 = document.getElementById("Mark_1").value;
+                    mark2 = document.getElementById("Mark_2").value;
+                    mark3 = document.getElementById("Mark_3").value;
+
+                    firstName = document.getElementById("first_name").value;
+                    lastName = document.getElementById("last_name").value;
+
+
+                
+
+                    avgMark = mark1/3 + mark2/3 + mark3/3;
+
+                    avgMark = Math.round(avgMark);
+
+                    if (avgMark >= 90) {
+                        text = "Awesome"
+                    } else if (avgMark >= 80) {
+                        text = "Very Good"
+                    } else if (avgMark >= 50) {
+                        text = "OK"
+                    } else {
+                        text = "Fail"
+                    }
+                    document.getElementById("result").innerHTML = "The average mark for " + firstName + " " + lastName + " is " + avgMark + ". " + text;
+                }
+                
+
+             
+            </script>
+
+            <!-- function myFunction() {
+                var greeting;
+                var time = new Date().getHours();
+                if(time < 10) {
+                    greeting = "Good Morning";
+                } else if (time < 20) {
+                    greeting = "Good Day";
+                } else{
+                    greeting = "Good evening";
+                }
+                document.getElementById("demo").innerHTML=greeting;
+            }-->
 
 
 
