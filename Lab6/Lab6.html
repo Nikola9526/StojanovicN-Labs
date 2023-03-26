@@ -5,7 +5,6 @@
             span {
                 color: red;
             }
-
         </style>
         <title>Lab6</title>
     </head>
@@ -119,8 +118,8 @@
                     var firstName = document.getElementById("first_name").value;
                     var lastName = document.getElementById("last_name").value;
 
-                    var avgMark = mark1/3 + mark2/3 + mark3/3;
-                    avgMark = Math.round(avgMark);
+                    var avgMark = mark1/3 + mark2/3 + mark3/3; // calculateing average mark 
+                    avgMark = Math.round(avgMark); //rounding to whole number 
 
                     var text
                     if (avgMark >= 90) {
@@ -136,34 +135,11 @@
                         document.getElementById("result").innerHTML = "The average mark for " + firstName + " " + lastName + " is " + avgMark + ". That is " + text;
                     }
                     else {
-                        validateTxt();
+                        validateTxt(); 
                     }
                     
                 }
-                
-
-             
             </script>
-
-            <!-- function myFunction() {
-                var greeting;
-                var time = new Date().getHours();
-                if(time < 10) {
-                    greeting = "Good Morning";
-                } else if (time < 20) {
-                    greeting = "Good Day";
-                } else{
-                    greeting = "Good evening";
-                }
-                document.getElementById("demo").innerHTML=greeting;
-            }-->
-
-
-
-
-
-
         </main>
-
     </body>
 </html>
