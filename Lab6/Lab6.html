@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            span {
+                color: red;
+            }
+
+        </style>
         <title>Lab6</title>
     </head>
     <body>
@@ -31,11 +37,10 @@
 
 
            <p id="result"></p>
-
-            <!--<button onclick="myFunction()">Try it</button>-->
-                
+      
         
             <script>
+                var isVaild = false;
                 var validateTxt = function() {
                     var firstName = document.getElementById("first_name").value;
                     var lastName = document.getElementById("last_name").value;
@@ -43,9 +48,12 @@
                     var mark2 = document.getElementById("Mark_2").value;
                     var mark3 = document.getElementById("Mark_3").value;
 
+                    isVaild=true;
+
                     // validate first name 
                     if (firstName == "") {
                         document.getElementById("first_name_error").firstChild.nodeValue = " This field is required!";
+                        isVaild=false;
                     } else {
                         document.getElementById("first_name_error").firstChild.nodeValue = "*";
                     }
@@ -53,6 +61,7 @@
                     // validate last name 
                     if (lastName =="") {
                         document.getElementById("last_name_error").firstChild.nodeValue = "This field is required!";
+                        isVaild=false;
                     }else {
                         document.getElementById("last_name_error").firstChild.nodeValue = "*";
                     }
@@ -60,10 +69,13 @@
                     // validate mark 1 
                     if (mark1 == "" ) {
                         document.getElementById("Mark_1_error").firstChild.nodeValue = "This field is required!";
+                        isVaild=false;
                     } else if (mark1 < 0 ) {
                         document.getElementById("Mark_1_error").firstChild.nodeValue = "Mark must be greater than 0";
+                        isVaild=false;
                     }else if (mark1 > 100) {
                         document.getElementById("Mark_1_error").firstChild.nodeValue = "Mark must be less than 100";
+                        isVaild=false;
                     } else{
                         document.getElementById("Mark_1_error").firstChild.nodeValue = "*"
                     }
@@ -71,10 +83,13 @@
                     //vaildate mark2 
                     if (mark2 == "" ) {
                         document.getElementById("Mark_2_error").firstChild.nodeValue = "This field is required!";
+                        isVaild=false;
                     } else if (mark2 < 0 ) {
                         document.getElementById("Mark_2_error").firstChild.nodeValue = "Mark must be greater than 0";
+                        isVaild=false;
                     }else if (mark2 > 100) {
                         document.getElementById("Mark_2_error").firstChild.nodeValue = "Mark must be less than 100";
+                        isVaild=false;
                     } else{
                         document.getElementById("Mark_2_error").firstChild.nodeValue = "*"
                     }
@@ -83,31 +98,31 @@
 
                     if (mark3 == "" ) {
                         document.getElementById("Mark_3_error").firstChild.nodeValue = "This field is required!";
+                        isVaild=false;
                     } else if (mark3 < 0 ) {
                         document.getElementById("Mark_3_error").firstChild.nodeValue = "Mark must be greater than 0";
+                        isVaild=false;
                     }else if (mark3 > 100) {
                         document.getElementById("Mark_3_error").firstChild.nodeValue = "Mark must be less than 100";
+                        isVaild=false;
                     } else{
                         document.getElementById("Mark_3_error").firstChild.nodeValue = "*"
                     }
                 } 
 
                 var printResult = function() {
-                    var avgMark, mark1, mark2, mark3, firstName, lastName, text 
-                    mark1 = document.getElementById("Mark_1").value;
-                    mark2 = document.getElementById("Mark_2").value;
-                    mark3 = document.getElementById("Mark_3").value;
 
-                    firstName = document.getElementById("first_name").value;
-                    lastName = document.getElementById("last_name").value;
+                    var mark1 = document.getElementById("Mark_1").value;
+                    var mark2 = document.getElementById("Mark_2").value;
+                    var mark3 = document.getElementById("Mark_3").value;
 
+                    var firstName = document.getElementById("first_name").value;
+                    var lastName = document.getElementById("last_name").value;
 
-                
-
-                    avgMark = mark1/3 + mark2/3 + mark3/3;
-
+                    var avgMark = mark1/3 + mark2/3 + mark3/3;
                     avgMark = Math.round(avgMark);
 
+                    var text
                     if (avgMark >= 90) {
                         text = "Awesome"
                     } else if (avgMark >= 80) {
@@ -117,7 +132,13 @@
                     } else {
                         text = "Fail"
                     }
-                    document.getElementById("result").innerHTML = "The average mark for " + firstName + " " + lastName + " is " + avgMark + ". " + text;
+                    if (isVaild) {
+                        document.getElementById("result").innerHTML = "The average mark for " + firstName + " " + lastName + " is " + avgMark + ". That is " + text;
+                    }
+                    else {
+                        validateTxt();
+                    }
+                    
                 }
                 
 
