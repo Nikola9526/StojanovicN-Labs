@@ -2,50 +2,40 @@
 <html>
     <head>
         <title>Lab7</title>
+        
     </head>
     <body>
-        <button id="buttonChris" onclick="show()">Christmas</button>
-        <button onclick="show()">Halloween</button>
-        <button onclick="show()">Easter</button>
-
-        <img id="christmas" src="./images3/Screen Shot 2023-03-31 at 12.39.27 AM.png" alt="christmas tree" style="display: none;">
-        <img id="halloween" src="./images3/pumpkin.gif" alt="pumpkin pic" style="display: none;">
-        <img id="easter" src="./images3/Screen Shot 2023-03-31 at 12.38.37 AM.png" alt="easter pic" style="display: none;">
+        <button id="buttonC" onclick="show(id)">Christmas</button>
+        <button id="buttonH" onclick="show(id)">Halloween</button>
+        <button id="buttonE" onclick="show(id)">Easter</button> 
+        <br>
+        <p>
+            <img id="picture" src="" alt="">
+        </p>
 
         <script>
             var $ = function (id) {
                 return document.getElementById(id)
             }
 
-            
-
-            $(chrisID).addEventListener("click", () =>{});
-
-
-            var show = function() {
-                $("chrisID").style.display = "block";
-
-
-
-
-
-
+            var show = function(id) {
+                
+                switch (id) {
+                    case "buttonC":
+                        $("picture").src = "./images3/xmas.png"
+                        $("picture").alt = "Picture of X-mass tree."
+                        break;
+                    case "buttonH":
+                        $("picture").src = "./images3/pumpkin.gif"
+                        $("picture").setAttribute("alt","Picture of a pumpkin.")
+                        break;
+                    default:
+                        $("picture").setAttribute("src","./images3/easter.png")
+                        $("picture").setAttribute("alt","Picture of easter eggs.")
+                        break;
+                }
             }
         </script>
 
     </body>
 </html>
-
-<!--<body>
-<p>When will the world end?</p> <button id="myBtn">Find Out</button> <p id="demo"></p>
-<script>
-document.getElementById("myBtn").addEventListener("click", displayDate); function displayDate() {
-document.getElementById("demo").innerHTML = Date(); }
-</script>
-</body>-->
-
-<!--const showImageButton = document.getElementById("show-image-button");
-      const myImage = document.getElementById("my-image"); 
-      showImageButton.addEventListener("click", () => { 
-         myImage.style.display = "block"; 
-      });-->
