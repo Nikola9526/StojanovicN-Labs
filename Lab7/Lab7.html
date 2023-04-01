@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Lab7</title>
-        
+
     </head>
     <body>
         <button id="buttonC" onclick="show(id)">Christmas</button>
@@ -10,7 +10,7 @@
         <button id="buttonE" onclick="show(id)">Easter</button> 
         <br>
         <p>
-            <img id="picture" src="" alt="">
+            <img id="picture" src="" alt="">  <!--Img tag where the three pictures will showing when the button is pressed-->
         </p>
 
         <script>
@@ -27,12 +27,10 @@
                         break;
                     case "buttonH":
                         $("picture").src = "./images3/pumpkin.gif"
-                        $("picture").setAttribute("alt","Picture of a pumpkin.")
+                        $("picture").alt = "Picture of a pumpkin."  
                         break;
                     default:
-                        $("picture").setAttribute("src","./images3/easter.png")
-                        $("picture").setAttribute("alt","Picture of easter eggs.")
-                        break;
+                        $("picture").src = "./images3/easter.png"                           
                 }
             }
         </script>
